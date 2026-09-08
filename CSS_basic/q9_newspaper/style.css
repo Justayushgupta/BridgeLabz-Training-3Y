@@ -1,0 +1,122 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    background-color: #eeebe3;
+    color: #1a1a1a;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.newspaper-wrapper {
+    max-width: 1080px;
+    width: 100%;
+    background-color: #faf8f5;
+    padding: 45px 50px;
+    border: 1px solid #d3cec4;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.newspaper-header {
+    border-bottom: 4px double #1a1a1a;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.masthead {
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.edition-bar {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Times New Roman', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 8px;
+    color: #4a4a4a;
+}
+
+.columns-container {
+    column-count: 3;
+    column-gap: 36px;
+    column-rule: 1px solid #d3cec4;
+    text-align: justify;
+    line-height: 1.75;
+    font-size: 1.02rem;
+}
+
+.headline-span {
+    column-span: all;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.news-image-left {
+    float: left;
+    width: 48%;
+    margin: 0 18px 14px 0;
+    border: 1px solid #cbd5e1;
+    background-color: #f1f5f9;
+    padding: 6px;
+}
+
+.news-image-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-image-left figcaption {
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    color: #475569;
+    margin-top: 6px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.columns-container p {
+    margin-bottom: 18px;
+    text-indent: 1.5em;
+}
+
+@media (max-width: 800px) {
+    .columns-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 550px) {
+    .columns-container {
+        column-count: 1;
+    }
+
+    .news-image-left {
+        width: 100%;
+        float: none;
+        margin: 0 0 15px 0;
+    }
+
+    .masthead {
+        font-size: 2.2rem;
+    }
+}

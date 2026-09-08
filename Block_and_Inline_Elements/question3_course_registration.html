@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Registration Form</title>
+</head>
+<body>
+
+    <h1>Student Course Registration</h1>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Student Information</legend>
+            <p>
+                <label for="student-name">Full Name:</label>
+                <input type="text" id="student-name" name="student_name" required>
+            </p>
+            <p>
+                <label for="student-email">Email Address:</label>
+                <input type="email" id="student-email" name="student_email" required>
+            </p>
+            <p>
+                <label for="student-phone">Phone Number:</label>
+                <input type="tel" id="student-phone" name="student_phone">
+            </p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Course Selection</legend>
+            <p>
+                <label for="course-select">Select Course:</label>
+                <select id="course-select" name="course" required>
+                    <option value="">-- Choose a Course --</option>
+                    <option value="cs101">CS101 - Introduction to Programming</option>
+                    <option value="web102">WEB102 - Full Stack Web Development</option>
+                    <option value="ds103">DS103 - Data Structures & Algorithms</option>
+                    <option value="db104">DB104 - Database Management Systems</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="Register Now">
+                <input type="reset" value="Reset Form">
+            </p>
+        </fieldset>
+    </form>
+
+    <h2>Available Course Schedules</h2>
+
+    <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Introduction to Programming</td>
+                <td>Monday & Wednesday</td>
+                <td>10:00 AM - 11:30 AM</td>
+                <td>Dr. Alan Turing</td>
+            </tr>
+            <tr>
+                <td>Full Stack Web Development</td>
+                <td>Tuesday & Thursday</td>
+                <td>02:00 PM - 03:30 PM</td>
+                <td>Prof. Tim Berners-Lee</td>
+            </tr>
+            <tr>
+                <td>Data Structures & Algorithms</td>
+                <td>Wednesday & Friday</td>
+                <td>09:00 AM - 10:30 AM</td>
+                <td>Dr. Donald Knuth</td>
+            </tr>
+            <tr>
+                <td>Database Management Systems</td>
+                <td>Monday & Thursday</td>
+                <td>04:00 PM - 05:30 PM</td>
+                <td>Prof. Edgar Codd</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

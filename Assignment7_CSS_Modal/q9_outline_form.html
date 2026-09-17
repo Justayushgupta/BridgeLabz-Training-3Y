@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outline and Focus Form</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  form { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); width: 400px; display: flex; flex-direction: column; gap: 20px; }
+  h2 { color: #1a1a2e; font-size: 1.4rem; text-align: center; }
+  label { font-size: 0.9rem; color: #555; margin-bottom: 4px; display: block; }
+  input, textarea { width: 100%; padding: 12px 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 0.95rem; outline: 3px solid transparent; outline-offset: 3px; transition: outline-color 0.3s, border-color 0.3s, box-shadow 0.3s; resize: vertical; font-family: Arial, sans-serif; }
+  input:focus { outline-color: #4361ee; border-color: #4361ee; box-shadow: 0 0 0 4px rgba(67,97,238,0.15); }
+  textarea:focus { outline-color: #52b788; border-color: #52b788; box-shadow: 0 0 0 4px rgba(82,183,136,0.15); }
+  .outline-demo { padding: 10px 14px; border-radius: 8px; border: 2px solid #ccc; outline: 3px dashed #e2b96f; outline-offset: 5px; font-size: 0.9rem; color: #555; background: #fffdf0; }
+  button { padding: 14px; background: #1a1a2e; color: #e2b96f; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+  button:hover { background: #0f3460; }
+</style>
+</head>
+<body>
+<form>
+  <h2>Contact Form</h2>
+  <div>
+    <label>Name</label>
+    <input type="text" placeholder="Enter your name">
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="text" placeholder="Enter your email">
+  </div>
+  <div>
+    <label>Message</label>
+    <textarea rows="4" placeholder="Write your message..."></textarea>
+  </div>
+  <div class="outline-demo">This element has a dashed gold outline with outline-offset: 5px</div>
+  <button type="submit">Send Message</button>
+</form>
+</body>
+</html>

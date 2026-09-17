@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini UI Layout</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1a1a2e, #0f3460); min-height: 100vh; display: flex; flex-direction: column; }
+  header { background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  header h1 { color: #e2b96f; font-size: 1.2rem; }
+  header nav { display: flex; gap: 20px; }
+  header nav a { color: #aaa; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+  header nav a:hover { color: #e2b96f; }
+  main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+  .card { background: #fff; border-radius: 20px; padding: 36px; width: 100%; max-width: 500px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 22px; }
+  .card-top { display: flex; gap: 20px; align-items: center; }
+  .avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #4361ee, #e2b96f); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; flex-shrink: 0; border: 3px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .card-top-text h2 { color: #1a1a2e; margin-bottom: 4px; }
+  .card-top-text p { color: #888; font-size: 0.85rem; }
+  form { display: flex; flex-direction: column; gap: 14px; }
+  input { padding: 12px 14px; border: 2px solid #ddd; border-radius: 10px; font-size: 0.9rem; outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+  input:focus { border-color: #4361ee; box-shadow: 0 0 0 3px rgba(67,97,238,0.15); }
+  .btn-row { display: flex; gap: 12px; }
+  .btn-row button { flex: 1; padding: 13px; border-radius: 10px; font-size: 0.9rem; font-weight: bold; cursor: pointer; border: 2px solid transparent; transition: all 0.25s ease; }
+  .save { background: #4361ee; color: #fff; }
+  .save:hover { background: #3351d4; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(67,97,238,0.4); }
+  .save:active { transform: translateY(0); }
+  .cancel { background: transparent; color: #e63946; border-color: #e63946; }
+  .cancel:hover { background: #e63946; color: #fff; }
+  footer { background: rgba(255,255,255,0.05); color: #666; text-align: center; padding: 14px; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.07); }
+  @media (max-width: 500px) {
+    header { flex-direction: column; gap: 10px; }
+    .card-top { flex-direction: column; text-align: center; }
+    .btn-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ DevUI</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+  </nav>
+</header>
+<main>
+  <div class="card">
+    <div class="card-top">
+      <div class="avatar">👤</div>
+      <div class="card-top-text">
+        <h2>Edit Profile</h2>
+        <p>Update your personal information</p>
+      </div>
+    </div>
+    <form>
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Email Address">
+      <input type="text" placeholder="Phone Number">
+    </form>
+    <div class="btn-row">
+      <button class="save">Save Changes</button>
+      <button class="cancel">Cancel</button>
+    </div>
+  </div>
+</main>
+<footer><p>&copy; 2026 DevUI. All rights reserved.</p></footer>
+</body>
+</html>

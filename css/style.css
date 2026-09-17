@@ -1,0 +1,34 @@
+.box{
+    background-color: antiquewhite;
+    height: 200px;
+    width: 200px;
+    margin: 30px;
+    position: relative;
+
+}
+#box-1{
+    position: static;
+    top: 0;
+    background-color: aquamarine;
+
+}
+#box-2{
+    position: relative;
+    background-color: blueviolet;
+}
+#box-3{
+    position: sticky;
+}
+#box-4{
+    position: absolute;
+}
+
+#box-5{
+    position: absolute;
+}
+#box-6{
+    position: absolute;
+}
+#box-7{
+    position: absolute;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Internship Application Form
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Internship Application Form</h1>
+
+    <form action="/register" method="post">
+
+        <label for="fullname" id="fullname">Full name : </label>
+        <input type="text" name="fullname" id="fullname" placeholder="eg.  kanishk chahar" required>
+
+        <br>
+
+        <label for="email" id="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="eg. kanishk@gmail.com" required>
+
+        <br>
+
+        <label for="phone" id="phone">Phone : </label>
+        <input type="number" name="phone" id="phone" placeholder="9389840455" required minlength="10" maxlength="10">
+
+        <br>
+
+        <label for="dob" id="dob">Date Of Birth : </label>
+        <input type="date" name="dob" id="dob" required>
+
+        <br>
+
+        <label for="password" id="password">Password : </label>
+        <input type="password" name="password" id="password" required>
+
+        <br>
+
+        <label for="gender">Gender : </label>
+
+        <input type="radio" name="gender" id="gender" required>
+        <label for="male">Male</label>
+
+        <input type="radio" name="gender" id="gender" required>
+        <label for="female">Female</label>
+
+        <input type="radio" name="gender" id="gender" required>
+        <label for="other">Other</label>
+
+        <br>
+
+        <label for="course">Course : </label>
+        <select name="course" id="course" required>
+            <option value="" >Select a course</option>
+            <option value="cse">CSE</option>
+            <option value="it">IT</option>
+            <option value="ece">ECE</option>
+            <option value="mechanical">Mechanical</option>
+        </select>
+
+        <br>
+
+        <label for="skill">Skill : </label>
+        <input type="checkbox" name="skill" id="java">
+        <label for="java">Java</label>
+
+        <input type="checkbox" name="skill" id="javascript">
+        <label for="javascript">Javascript</label>
+
+        <input type="checkbox" name="skill" id="html">
+        <label for="html">HTML</label>
+
+        <input type="checkbox" name="skill" id="css">
+        <label for="css">CSS</label>
+
+        <input type="checkbox" name="skill" id="react">
+        <label for="react">React</label>
+
+        <br>
+
+        <label for="internship_preference">Internship Preference : </label>
+
+        <input type="radio" name="internship_preference" id="remote" required>
+        <label for="remote">Remote</label>
+
+        <input type="radio" name="internship_preference" id="hybrid" required>
+        <label for="hybrid">HYBRID</label>
+
+        <input type="radio" name="internship_preference" id="in-persion" required>
+        <label for="in-persion">In-persion</label>
+
+        <br>
+
+        <label for="resume">Resume : </label>
+        <input type="file" name="resume" id="resume" required>
+
+        <br>
+
+        <label for="comment">Comment : </label>
+        <br>
+        <textarea name="comment" id="comment" cols=30" rows="5" placeholder="Give a reason to hire you" required></textarea>
+
+        <br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+</body>
+
+</html>

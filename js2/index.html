@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Assignment 2 - Runner Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f7fafc;
+      color: #2d3748;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    header h1 {
+      font-size: 26px;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 15px;
+      color: #718096;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      font-size: 16px;
+      color: #2b6cb0;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 13px;
+      color: #4a5568;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+    .card button {
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    .card button:hover {
+      background-color: #2b6cb0;
+    }
+    .actions {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .btn-run-all {
+      background-color: #38a169;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-run-all:hover {
+      background-color: #2f855a;
+    }
+    .btn-clear {
+      background-color: #e53e3e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .console-box {
+      background: #1a202c;
+      color: #68d391;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 13px;
+      padding: 16px;
+      border-radius: 8px;
+      min-height: 250px;
+      max-height: 500px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>JavaScript - Assignment 2</h1>
+      <p>JS Operators, Scope, Strings, Arrays & Objects (Lectures 4-6) &bull; Check results below or in Browser Developer Tools Console</p>
+    </header>
+
+    <div class="actions">
+      <button class="btn-run-all" onclick="runAll()">Run All 10 Questions</button>
+      <button class="btn-clear" onclick="clearConsole()">Clear Console Output</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Q1. Scope Conflict Resolver</h3>
+        <p>Global vs function local scoping, bonus logic, and scope leak verification.</p>
+        <button onclick="runScript('question1.js')">Run Question 1</button>
+      </div>
+
+      <div class="card">
+        <h3>Q2. String Manipulation Report</h3>
+        <p>Formatting product titles with trim, split, map, join, replace, and length.</p>
+        <button onclick="runScript('question2.js')">Run Question 2</button>
+      </div>
+
+      <div class="card">
+        <h3>Q3. Math Utility Dashboard</h3>
+        <p>Scientific calculations with round, sqrt, pow, random, and template literals.</p>
+        <button onclick="runScript('question3.js')">Run Question 3</button>
+      </div>
+
+      <div class="card">
+        <h3>Q4. Array Performance Analyzer</h3>
+        <p>Scores analysis using Math.max/min, map(), filter(), and reduce().</p>
+        <button onclick="runScript('question4.js')">Run Question 4</button>
+      </div>
+
+      <div class="card">
+        <h3>Q5. Boolean Logic Access System</h3>
+        <p>Smart home security evaluation combining &&, ||, and ! operators.</p>
+        <button onclick="runScript('question5.js')">Run Question 5</button>
+      </div>
+
+      <div class="card">
+        <h3>Q6. Event-Based Counter Simulation</h3>
+        <p>Simulating click events with increment, decrement, and nested function scope.</p>
+        <button onclick="runScript('question6.js')">Run Question 6</button>
+      </div>
+
+      <div class="card">
+        <h3>Q7. Customer Feedback Processor</h3>
+        <p>Word counting and sentiment check using split(), includes(), and conditionals.</p>
+        <button onclick="runScript('question7.js')">Run Question 7</button>
+      </div>
+
+      <div class="card">
+        <h3>Q8. Dynamic Discount Evaluator</h3>
+        <p>Category discounts and extra 5% bulk discount via reduce() and loops.</p>
+        <button onclick="runScript('question8.js')">Run Question 8</button>
+      </div>
+
+      <div class="card">
+        <h3>Q9. Odd–Even Number Analyzer</h3>
+        <p>Classifying numbers 1-30 with FizzBuzz, Even, Odd using modulo % and push().</p>
+        <button onclick="runScript('question9.js')">Run Question 9</button>
+      </div>
+
+      <div class="card">
+        <h3>Q10. Departmental Employee Evaluator</h3>
+        <p>Nested array evaluation with comparison operators and nested if-else.</p>
+        <button onclick="runScript('question10.js')">Run Question 10</button>
+      </div>
+    </div>
+
+    <div class="console-box" id="outputConsole">Press "Run All" or any Question button to see output...</div>
+  </div>
+
+  <script>
+    const outputConsole = document.getElementById("outputConsole");
+
+    const originalLog = console.log;
+    const originalTable = console.table;
+
+    function logToUI(...args) {
+      originalLog.apply(console, args);
+      const message = args.map(arg => typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg)).join(" ");
+      outputConsole.textContent += message + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function tableToUI(data) {
+      originalTable.call(console, data);
+      outputConsole.textContent += JSON.stringify(data, null, 2) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    console.log = logToUI;
+    console.table = tableToUI;
+
+    function clearConsole() {
+      outputConsole.textContent = "";
+    }
+
+    function runScript(fileName) {
+      clearConsole();
+      logToUI(`>>> Executing ${fileName}...`);
+      fetch(fileName)
+        .then(res => res.text())
+        .then(code => {
+          new Function(code)();
+        })
+        .catch(err => {
+          logToUI(`Error executing ${fileName}: ${err.message}`);
+        });
+    }
+
+    function runAll() {
+      clearConsole();
+      const files = [
+        "question1.js", "question2.js", "question3.js", "question4.js", "question5.js",
+        "question6.js", "question7.js", "question8.js", "question9.js", "question10.js"
+      ];
+      
+      let p = Promise.resolve();
+      files.forEach(f => {
+        p = p.then(() => {
+          logToUI(`\n========================================`);
+          logToUI(`=== RUNNING: ${f} ===`);
+          logToUI(`========================================`);
+          return fetch(f)
+            .then(res => res.text())
+            .then(code => {
+              new Function(code)();
+            });
+        });
+      });
+    }
+  </script>
+</body>
+</html>

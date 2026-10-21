@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q9 – Responsive Design Principles Summary</title>
+  <link rel="stylesheet" href="design-principles.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Responsive Design Principles</h1>
+    <p class="subtitle">The three foundational pillars of modern responsive web design</p>
+  </header>
+
+  <main>
+    <!-- CSS Grid: 3 columns → 1 column below 600px -->
+    <section class="principles-grid" aria-label="Responsive design principles">
+
+      <!-- Box 1 – Fluid Layouts -->
+      <article class="principle-box principle-box--fluid">
+        <div class="principle-box__icon" aria-hidden="true">&#8644;</div>
+        <h2 class="principle-box__title">Fluid Layouts</h2>
+        <p class="principle-box__definition">
+          Use percentage-based widths and CSS Grid / Flexbox so elements
+          resize proportionally rather than overflowing their containers.
+        </p>
+        <div class="principle-box__example">
+          <h3>CSS Example</h3>
+          <pre><code>.container {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}</code></pre>
+        </div>
+      </article>
+
+      <!-- Box 2 – Flexible Media -->
+      <article class="principle-box principle-box--media">
+        <div class="principle-box__icon" aria-hidden="true">&#128247;</div>
+        <h2 class="principle-box__title">Flexible Media</h2>
+        <p class="principle-box__definition">
+          Images, videos, and other embedded media should scale within their
+          parent containers, never overflowing or distorting.
+        </p>
+        <div class="principle-box__example">
+          <h3>CSS Example</h3>
+          <pre><code>img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+        </div>
+      </article>
+
+      <!-- Box 3 – Breakpoints -->
+      <article class="principle-box principle-box--breakpoints">
+        <div class="principle-box__icon" aria-hidden="true">&#128241;</div>
+        <h2 class="principle-box__title">Breakpoints</h2>
+        <p class="principle-box__definition">
+          Media queries define specific viewport widths at which the layout
+          reorganises to best suit the available screen space.
+        </p>
+        <div class="principle-box__example">
+          <h3>CSS Example</h3>
+          <pre><code>/* Tablet */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}</code></pre>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>Assignment 9 – Q9 | Responsive Design Principles Summary</p>
+  </footer>
+
+</body>
+</html>

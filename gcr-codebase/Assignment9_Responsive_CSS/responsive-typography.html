@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q4 – Responsive Typography</title>
+  <link rel="stylesheet" href="responsive-typography.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Responsive Typography</h1>
+    <p class="tagline">Text that scales gracefully across every viewport</p>
+  </header>
+
+  <main>
+
+    <!-- Hero section with fluid heading and paragraph -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading" class="hero__heading">
+        Design for Every Screen Size
+      </h1>
+      <p class="hero__body">
+        Responsive typography uses <code>clamp()</code>, viewport units, and
+        media queries to ensure legible, well-spaced text whether you are
+        reading on a large desktop monitor or a small mobile phone.
+        The font size, line-height, and spacing all adapt fluidly so content
+        always feels comfortable and intentional.
+      </p>
+    </section>
+
+    <!-- Article-style content blocks -->
+    <section class="content-blocks">
+
+      <article class="block">
+        <h2 class="block__heading">The clamp() Function</h2>
+        <p class="block__text">
+          <code>clamp(min, preferred, max)</code> locks a value between a
+          minimum and maximum while letting it scale fluidly in between.
+          This removes the need for many explicit breakpoints just to resize
+          text.
+        </p>
+      </article>
+
+      <article class="block">
+        <h2 class="block__heading">Viewport Units</h2>
+        <p class="block__text">
+          <code>vw</code> (viewport width) and <code>vh</code> (viewport
+          height) let type grow and shrink proportionally with the browser
+          window, creating a truly fluid reading experience.
+        </p>
+      </article>
+
+      <article class="block">
+        <h2 class="block__heading">Line-height &amp; Spacing</h2>
+        <p class="block__text">
+          Comfortable reading requires adequate line-height — typically 1.5
+          to 1.7 for body text. On smaller screens, tighter margins and
+          slightly increased line-height improve readability on narrow
+          columns.
+        </p>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Assignment 9 – Q4 | Responsive Typography</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Section</title>
+<style>
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+  h1 { margin-bottom: 40px; color: #1a1a2e; font-size: 2rem; }
+  .pricing { display: flex; gap: 24px; align-items: center; justify-content: center; }
+  .card { background: #fff; border-radius: 16px; padding: 40px 30px; text-align: center; width: 240px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeIn 0.6s ease both; }
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.3s; }
+  .card:nth-child(3) { animation-delay: 0.5s; }
+  .card:hover { transform: translateY(-10px); box-shadow: 0 16px 36px rgba(0,0,0,0.16); }
+  .card.featured { background: #1a1a2e; color: #fff; transform: scale(1.08); }
+  .card.featured:hover { transform: scale(1.08) translateY(-10px); }
+  .card h2 { font-size: 1.2rem; margin-bottom: 16px; }
+  .card .price { font-size: 2.2rem; font-weight: bold; margin-bottom: 16px; color: #e2b96f; }
+  .card ul { list-style: none; margin-bottom: 24px; }
+  .card ul li { padding: 6px 0; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.06); color: inherit; opacity: 0.8; }
+  .card button { padding: 12px 28px; border: none; border-radius: 8px; background: #e2b96f; color: #1a1a2e; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: background 0.3s; }
+  .card button:hover { background: #c9a25a; }
+  @media (max-width: 750px) { .pricing { flex-direction: column; } .card.featured { transform: scale(1); } }
+</style>
+</head>
+<body>
+<h1>Choose Your Plan</h1>
+<div class="pricing">
+  <div class="card">
+    <h2>Basic</h2>
+    <div class="price">₹499<span style="font-size:1rem">/mo</span></div>
+    <ul><li>5 Projects</li><li>10 GB Storage</li><li>Email Support</li></ul>
+    <button>Get Started</button>
+  </div>
+  <div class="card featured">
+    <h2>Pro</h2>
+    <div class="price">₹999<span style="font-size:1rem">/mo</span></div>
+    <ul><li>Unlimited Projects</li><li>50 GB Storage</li><li>Priority Support</li></ul>
+    <button>Get Started</button>
+  </div>
+  <div class="card">
+    <h2>Enterprise</h2>
+    <div class="price">₹1999<span style="font-size:1rem">/mo</span></div>
+    <ul><li>Custom Projects</li><li>500 GB Storage</li><li>24/7 Support</li></ul>
+    <button>Get Started</button>
+  </div>
+</div>
+</body>
+</html>

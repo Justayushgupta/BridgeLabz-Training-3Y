@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Flip</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .scene { width: 280px; height: 360px; perspective: 1000px; }
+  .card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.7s ease; cursor: pointer; }
+  .scene:hover .card { transform: rotateY(180deg); }
+  .face { position: absolute; width: 100%; height: 100%; border-radius: 16px; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .front { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; }
+  .front .icon { font-size: 5rem; margin-bottom: 20px; }
+  .front h2 { font-size: 1.4rem; color: #e2b96f; }
+  .back { background: linear-gradient(135deg, #e2b96f, #c9a25a); color: #1a1a2e; transform: rotateY(180deg); }
+  .back h2 { font-size: 1.2rem; margin-bottom: 16px; }
+  .back p { font-size: 0.95rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="card">
+    <div class="face front">
+      <div class="icon">🚀</div>
+      <h2>Launch Pad</h2>
+    </div>
+    <div class="face back">
+      <h2>About This Card</h2>
+      <p>This card demonstrates a 3D flip effect using CSS transform-style: preserve-3d and rotateY(180deg) on hover.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

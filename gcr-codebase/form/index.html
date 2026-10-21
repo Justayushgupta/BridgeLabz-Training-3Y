@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Student Registration Portal</h1>
+
+    <form action="/register" method="post">
+
+    <label for="fullname">Full name : </label>
+    <input type="text" id="fullname" name="full name" placeholder="eg. kanishk" required>
+
+    <br>
+
+    <label for="email">Email : </label>
+    <input type="email" id="email" name="email" placeholder="eg. kanishk@gmail.com" required>
+
+    <br>
+
+    <label for="age">Age : </label>
+    <input type="number" name="age" id="age" placeholder="eg. 18" required>
+
+    <br>
+
+    <label for="date">Date Of Birth : </label>
+    <input type="date" name="dateofbirth" id="dateofbirth" required>
+
+    <br>
+
+    <label for="gender">Gender : </label>
+
+    <input type="radio" name="gender" id="Male" value="Male" required>
+    <label for="male">Male</label>
+
+    <input type="radio" name="gender" id="female" value="female" required>
+    <label for="female">Female</label>
+
+    <input type="radio" name="gender" id="other" value="other" required>
+    <label for="other">Other</label>
+
+    <br>
+
+    <label id="skill">Skill : </label>
+    <br>
+    <input type="checkbox" name="java" id="skill" required>
+    <label for="java">Java</label>
+
+    <input type="checkbox" name="python" id="skill" required>
+    <label for="java">Python</label>
+
+    <input type="checkbox" name="go" id="skill" required>
+    <label for="java">Go</label>
+
+    <br>
+
+    <button type="submit" >Submit</button>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #1e293b;
+    border-bottom: 2px solid #38bdf8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #38bdf8;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 1.5em;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.hero-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.profile-card {
+    background-color: #1e293b;
+    width: 90%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid #334155;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+}
+
+.bio-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-top: 0.5em;
+}
+
+.footer {
+    background-color: #020617;
+    color: #64748b;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    border-top: 1px solid #1e293b;
+    font-size: 0.9rem;
+}

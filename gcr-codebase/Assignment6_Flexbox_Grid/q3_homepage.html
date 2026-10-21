@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Section Homepage</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column; background: #f9f9f9; }
+  header { background: #16213e; padding: 20px 40px; display: flex; justify-content: space-around; align-items: center; }
+  header a { color: #e2b96f; text-decoration: none; font-size: 1rem; padding: 8px 16px; border-radius: 4px; transition: background 0.3s; }
+  header a:hover { background: rgba(226,185,111,0.2); }
+  main { flex: 1; display: flex; justify-content: center; align-items: center; gap: 30px; padding: 60px 40px; }
+  .box { background: #fff; border-radius: 16px; padding: 40px 30px; text-align: center; width: 220px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+  .box:hover { transform: rotate(2deg); }
+  .box-icon { font-size: 2.5rem; margin-bottom: 14px; }
+  .box h2 { font-size: 1.2rem; color: #16213e; margin-bottom: 8px; }
+  .box p { font-size: 0.9rem; color: #666; }
+  footer { background: #16213e; color: #aaa; text-align: center; padding: 18px; width: 100%; }
+  @media (max-width: 700px) { main { flex-direction: column; padding: 30px 20px; } }
+</style>
+</head>
+<body>
+<header>
+  <a href="#">Home</a>
+  <a href="#">Services</a>
+  <a href="#">Projects</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+</header>
+<main>
+  <div class="box"><div class="box-icon">⚙️</div><h2>Services</h2><p>We offer top-quality web development services.</p></div>
+  <div class="box"><div class="box-icon">💼</div><h2>Projects</h2><p>Browse through our portfolio of completed work.</p></div>
+  <div class="box"><div class="box-icon">📬</div><h2>Contact</h2><p>Reach out to us for inquiries or collaborations.</p></div>
+</main>
+<footer><p>&copy; 2026 BridgeLabz. All rights reserved.</p></footer>
+</body>
+</html>

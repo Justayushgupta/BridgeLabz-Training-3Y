@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #111; padding: 40px 20px; }
+  h1 { color: #fff; text-align: center; margin-bottom: 30px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  figure { overflow: hidden; border-radius: 10px; }
+  .img-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3rem; transition: transform 0.5s ease; }
+  figure:hover .img-placeholder { transform: scale(1.12); }
+  .img-placeholder.c1 { background: linear-gradient(135deg,#e63946,#f4a261); }
+  .img-placeholder.c2 { background: linear-gradient(135deg,#4cc9f0,#4361ee); }
+  .img-placeholder.c3 { background: linear-gradient(135deg,#2d6a4f,#52b788); }
+  .img-placeholder.c4 { background: linear-gradient(135deg,#7b2d8b,#e040fb); }
+  .img-placeholder.c5 { background: linear-gradient(135deg,#f77f00,#fcbf49); }
+  .img-placeholder.c6 { background: linear-gradient(135deg,#0077b6,#00b4d8); }
+  figcaption { background: #1a1a2e; color: #e2b96f; text-align: center; padding: 10px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<h1>Photo Gallery</h1>
+<div class="gallery">
+  <figure><div class="img-placeholder c1">🌅</div><figcaption>Sunset</figcaption></figure>
+  <figure><div class="img-placeholder c2">🌊</div><figcaption>Ocean</figcaption></figure>
+  <figure><div class="img-placeholder c3">🌲</div><figcaption>Forest</figcaption></figure>
+  <figure><div class="img-placeholder c4">🌌</div><figcaption>Galaxy</figcaption></figure>
+  <figure><div class="img-placeholder c5">🏜️</div><figcaption>Desert</figcaption></figure>
+  <figure><div class="img-placeholder c6">🏔️</div><figcaption>Mountains</figcaption></figure>
+</div>
+</body>
+</html>

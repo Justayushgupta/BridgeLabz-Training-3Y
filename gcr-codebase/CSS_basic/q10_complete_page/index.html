@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Studio - Complete Webpage Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo">Apex<span>Studio</span></div>
+            <nav class="main-nav">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Innovative Digital Agency</span>
+            <h1 class="hero-heading">Crafting Exceptional Web Solutions</h1>
+            <p class="hero-subtext">We merge creative strategy, modern design systems, and robust architecture to elevate digital products.</p>
+            <a href="#contact" class="hero-btn">Start a Project</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="section-tag">Who We Are</span>
+                <h2 class="section-title">Architecting with Purpose and Precision</h2>
+                <p>
+                    Apex Studio is an elite collective of UI/UX designers, frontend architects, and systems strategists. We believe every pixel serves a purpose, balancing clean visual harmony with cutting-edge performance.
+                </p>
+                <p>
+                    Our core methodology is rooted in rigorous adherence to semantic standards, fluid responsiveness, and inclusive accessibility guidelines across every viewport.
+                </p>
+            </div>
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&auto=format&fit=crop&q=80" alt="Team Collaborating" class="about-img">
+                <div class="experience-card">
+                    <span class="exp-number">10+</span>
+                    <span class="exp-text">Years of Excellence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-tag">What We Offer</span>
+                <h2 class="section-title">End-to-End Digital Capabilities</h2>
+            </div>
+            <div class="services-grid">
+
+                <div class="service-box">
+                    <div class="service-icon">&#9998;</div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-desc">
+                        Intuitive design systems, responsive wireframes, and interactive prototypes tailored to your audience.
+                    </p>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-icon">&#9881;</div>
+                    <h3 class="service-title">Frontend Engineering</h3>
+                    <p class="service-desc">
+                        Scalable, modular codebases built with precision CSS, accessible semantic markup, and performance optimization.
+                    </p>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-icon">&#9874;</div>
+                    <h3 class="service-title">Brand & Strategy</h3>
+                    <p class="service-desc">
+                        Distinctive brand identities, typography guidelines, and digital product strategy that accelerate growth.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="section-header-center">
+                <span class="section-tag">Let's Connect</span>
+                <h2 class="section-title">Request a Consultation</h2>
+            </div>
+            <form class="consultation-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="c-name">Full Name</label>
+                        <input type="text" id="c-name" name="name" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="c-email">Email Address</label>
+                        <input type="email" id="c-email" name="email" placeholder="jane@example.com" required>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="c-message">Project Details</label>
+                    <textarea id="c-message" name="message" rows="4" placeholder="Briefly describe your vision..." required></textarea>
+                </div>
+                <button type="submit" class="submit-action-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Apex Studio Inc. All rights reserved.</p>
+            <p class="footer-sub">Designed with CSS Box Model, Positioning, Flexbox & Grid</p>
+        </div>
+    </footer>
+</body>
+</html>

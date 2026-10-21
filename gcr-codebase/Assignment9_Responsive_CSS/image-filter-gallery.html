@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q1 – Responsive Image Filter Gallery</title>
+  <link rel="stylesheet" href="image-filter-gallery.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Image Filter Gallery</h1>
+    <p class="subtitle">Hover over any image to reveal it in full colour</p>
+  </header>
+
+  <main>
+    <!-- Grid of six images, each with a unique CSS filter -->
+    <section class="gallery" aria-label="Image filter gallery">
+
+      <!-- Card 1 – blur filter -->
+      <article class="gallery__card filter--blur">
+        <img
+          src="https://picsum.photos/400/300?random=10"
+          alt="Scenic landscape – blur filter applied"
+          loading="lazy"
+        />
+        <figcaption>Blur Effect</figcaption>
+      </article>
+
+      <!-- Card 2 – grayscale filter -->
+      <article class="gallery__card filter--grayscale">
+        <img
+          src="https://picsum.photos/400/300?random=20"
+          alt="Mountain view – grayscale filter applied"
+          loading="lazy"
+        />
+        <figcaption>Grayscale Effect</figcaption>
+      </article>
+
+      <!-- Card 3 – sepia filter -->
+      <article class="gallery__card filter--sepia">
+        <img
+          src="https://picsum.photos/400/300?random=30"
+          alt="Forest path – sepia filter applied"
+          loading="lazy"
+        />
+        <figcaption>Sepia Effect</figcaption>
+      </article>
+
+      <!-- Card 4 – brightness filter -->
+      <article class="gallery__card filter--brightness">
+        <img
+          src="https://picsum.photos/400/300?random=40"
+          alt="City skyline – brightness filter applied"
+          loading="lazy"
+        />
+        <figcaption>Brightness Effect</figcaption>
+      </article>
+
+      <!-- Card 5 – contrast filter -->
+      <article class="gallery__card filter--contrast">
+        <img
+          src="https://picsum.photos/400/300?random=50"
+          alt="Ocean waves – contrast filter applied"
+          loading="lazy"
+        />
+        <figcaption>Contrast Effect</figcaption>
+      </article>
+
+      <!-- Card 6 – hue-rotate filter -->
+      <article class="gallery__card filter--hue-rotate">
+        <img
+          src="https://picsum.photos/400/300?random=60"
+          alt="Flower meadow – hue-rotate filter applied"
+          loading="lazy"
+        />
+        <figcaption>Hue-Rotate Effect</figcaption>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Q1 | Responsive CSS</p>
+  </footer>
+
+</body>
+</html>

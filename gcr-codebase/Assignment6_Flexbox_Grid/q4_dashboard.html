@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; height: 100vh; display: grid; grid-template-rows: 60px 1fr; grid-template-columns: 200px 1fr; grid-template-areas: "header header" "sidebar main"; }
+  header { grid-area: header; background: #1a1a2e; color: #fff; display: flex; align-items: center; padding: 0 30px; font-size: 1.2rem; font-weight: bold; }
+  aside { grid-area: sidebar; background: #16213e; padding: 30px 0; }
+  aside a { display: block; color: #aaa; text-decoration: none; padding: 14px 24px; font-size: 0.95rem; transition: background 0.2s, color 0.2s; }
+  aside a:hover { background: #0f3460; color: #e2b96f; }
+  aside a.active { background: #0f3460; color: #e2b96f; }
+  main { grid-area: main; padding: 30px; display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px; align-content: start; }
+  .box { background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+  .box:hover { transform: scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
+  .box h2 { font-size: 1rem; color: #555; margin-bottom: 10px; }
+  .box p { font-size: 1.8rem; font-weight: bold; color: #1a1a2e; }
+  .box.wide { grid-column: span 2; }
+</style>
+</head>
+<body>
+<header>📊 Dashboard</header>
+<aside>
+  <a href="#" class="active">🏠 Overview</a>
+  <a href="#">👤 Users</a>
+  <a href="#">📦 Products</a>
+  <a href="#">📈 Reports</a>
+  <a href="#">⚙️ Settings</a>
+</aside>
+<main>
+  <div class="box"><h2>Total Users</h2><p>12,450</p></div>
+  <div class="box"><h2>Revenue</h2><p>₹4,32,000</p></div>
+  <div class="box wide"><h2>Monthly Sales Overview</h2><p>📈 Sales grew by 18% this month compared to last month.</p></div>
+  <div class="box"><h2>Orders</h2><p>3,281</p></div>
+</main>
+</body>
+</html>

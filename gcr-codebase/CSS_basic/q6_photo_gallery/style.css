@@ -1,0 +1,105 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0b0f19;
+    color: #f1f5f9;
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.gallery-header p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    background-color: #1e293b;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover .caption-overlay {
+    opacity: 1;
+}
+
+.caption-overlay h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 6px;
+    transform: translateY(10px);
+    transition: transform 0.35s ease;
+}
+
+.caption-overlay p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    transform: translateY(10px);
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover .caption-overlay h3,
+.gallery-item:hover .caption-overlay p {
+    transform: translateY(0);
+}

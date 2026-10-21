@@ -1,0 +1,268 @@
+/* ============================================================
+   combined-responsive-demo.css
+   Q7 – Combined Responsive Web Demo
+   ============================================================ */
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   @keyframes – Fade-in for panels
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   HEADER + NAV – Flexbox
+   ============================================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #141e30, #243b55);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo__mark {
+  font-size: 1.6rem;
+  color: #f0a500;
+}
+
+.logo__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.primary-nav a {
+  color: #cdd9e5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+}
+
+.primary-nav a:hover {
+  color: #f0a500;
+}
+
+/* ============================================================
+   MAIN GRID – Three sections side by side
+   ============================================================ */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* equal thirds */
+  gap: 0;                             /* panels share borders */
+  min-height: 70vh;
+}
+
+/* ============================================================
+   PANEL (shared styles)
+   ============================================================ */
+.panel {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid #dce1e8;
+  animation: fadeIn 0.6s ease both;
+}
+
+.panel:last-child {
+  border-right: none;
+}
+
+.panel__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #141e30;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dce1e8;
+}
+
+/* -- Panel 1: Gallery -- */
+.panel--gallery {
+  background: #fff;
+  animation-delay: 0.1s;
+}
+
+.mini-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.mini-gallery__item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.mini-gallery__item:hover {
+  transform: scale(1.03);
+}
+
+.mini-gallery__item img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+
+.mini-gallery__item figcaption {
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 0.35rem;
+  background: #f7f9fc;
+  color: #555;
+}
+
+/* -- Panel 2: Text -- */
+.panel--text {
+  background: #f9fbfd;
+  animation-delay: 0.25s;
+}
+
+.panel--text p,
+.panel--text ul {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.9rem;
+}
+
+.panel--text ul {
+  padding-left: 1.2rem;
+}
+
+.panel--text li {
+  margin-bottom: 0.4rem;
+}
+
+/* -- Panel 3: Cheat Sheet -- */
+.panel--cheatsheet {
+  background: #fff;
+  animation-delay: 0.4s;
+}
+
+.cheat-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cheat-item {
+  background: #f0f4f8;
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid #243b55;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.cheat-item:hover {
+  border-color: #f0a500;
+  background: #fff8e8;
+}
+
+.cheat-item h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #141e30;
+  margin-bottom: 0.35rem;
+}
+
+.cheat-item pre {
+  overflow-x: auto;
+}
+
+.cheat-item code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: #243b55;
+  white-space: pre;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: #141e30;
+  color: #8899aa;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-footer address {
+  font-style: normal;
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.site-footer a {
+  color: #f0a500;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  align-self: flex-end;
+  color: #556677;
+}
+
+/* ============================================================
+   RESPONSIVE – Stack all sections below 700px
+   ============================================================ */
+@media (max-width: 700px) {
+  .main-grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid #dce1e8;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .panel:last-child {
+    border-bottom: none;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

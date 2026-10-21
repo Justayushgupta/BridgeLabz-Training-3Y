@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combined Effects</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 40px; }
+  h1 { color: #1a1a2e; }
+  .row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+  button { padding: 15px 32px; border: none; border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+  .btn1 { background: #4361ee; color: #fff; box-shadow: 0 4px 16px rgba(67,97,238,0.3); }
+  .btn1:hover { transform: scale(1.1); background: #3351d4; box-shadow: 0 8px 28px rgba(67,97,238,0.5); }
+  .btn1:active { transform: scale(0.97); }
+  .btn2 { background: #e63946; color: #fff; box-shadow: 0 4px 16px rgba(230,57,70,0.3); }
+  .btn2:hover { transform: scale(1.1) rotate(3deg); background: #c1121f; box-shadow: 0 8px 28px rgba(230,57,70,0.5); }
+  .btn3 { background: #52b788; color: #fff; box-shadow: 0 4px 16px rgba(82,183,136,0.3); }
+  .btn3:hover { transform: scale(1.1) translateY(-4px); background: #3d9c6e; box-shadow: 0 12px 30px rgba(82,183,136,0.5); }
+  .btn4 { background: transparent; color: #e2b96f; border: 2px solid #e2b96f; box-shadow: 0 4px 12px rgba(226,185,111,0.2); }
+  .btn4:hover { background: #e2b96f; color: #1a1a2e; transform: scale(1.1); box-shadow: 0 8px 24px rgba(226,185,111,0.5); }
+  .card { background: #fff; border-radius: 16px; padding: 24px 30px; display: flex; flex-direction: column; align-items: center; gap: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: default; }
+  .card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  .card-icon { font-size: 2.5rem; }
+  .card h3 { color: #1a1a2e; font-size: 1rem; }
+  .card p { color: #888; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<h1>Combined Effects</h1>
+<div class="row">
+  <button class="btn1">Scale + Shadow</button>
+  <button class="btn2">Scale + Rotate</button>
+  <button class="btn3">Scale + Lift</button>
+  <button class="btn4">Outline Fill</button>
+</div>
+<div class="row">
+  <div class="card"><div class="card-icon">🚀</div><h3>Launch</h3><p>Hover to lift + scale</p></div>
+  <div class="card"><div class="card-icon">💡</div><h3>Ideas</h3><p>Smooth shadow on hover</p></div>
+  <div class="card"><div class="card-icon">🎯</div><h3>Goals</h3><p>Transform + box-shadow</p></div>
+</div>
+</body>
+</html>

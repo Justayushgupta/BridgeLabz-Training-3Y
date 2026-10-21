@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Backgrounds</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+  header { background: #1a1a2e; color: #e2b96f; padding: 20px 40px; text-align: center; font-size: 1.3rem; font-weight: bold; position: sticky; top: 0; z-index: 10; }
+  .linear { background: linear-gradient(135deg, #1a1a2e 0%, #4361ee 50%, #4cc9f0 100%); background-attachment: fixed; min-height: 60vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: #fff; text-align: center; padding: 40px; }
+  .linear h2 { font-size: 2rem; }
+  .linear p { font-size: 1rem; opacity: 0.85; max-width: 500px; }
+  .radial { background: radial-gradient(circle at center, #e2b96f 0%, #e63946 50%, #1a1a2e 100%); min-height: 60vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: #fff; text-align: center; padding: 40px; }
+  .radial h2 { font-size: 2rem; }
+  .radial p { font-size: 1rem; opacity: 0.85; max-width: 500px; }
+  footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 16px; }
+</style>
+</head>
+<body>
+<header>Gradient Backgrounds Demo</header>
+<section class="linear">
+  <h2>Linear Gradient</h2>
+  <p>This section uses a linear gradient from dark navy to blue to cyan at 135 degrees. background-attachment: fixed creates a parallax-like effect.</p>
+</section>
+<section class="radial">
+  <h2>Radial Gradient</h2>
+  <p>This section uses a radial gradient starting from golden yellow at the center, transitioning to red and then dark navy at the edges.</p>
+</section>
+<footer><p>&copy; 2026 Gradient Demo</p></footer>
+</body>
+</html>

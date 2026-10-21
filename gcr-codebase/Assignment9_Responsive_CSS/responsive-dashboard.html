@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q10 – Responsive Dashboard Summary</title>
+  <link rel="stylesheet" href="responsive-dashboard.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="dashboard-header">
+    <div class="dashboard-header__brand">
+      <span class="brand-icon" aria-hidden="true">&#9670;</span>
+      <span class="brand-name">CSS Dashboard</span>
+    </div>
+    <p class="dashboard-header__tagline">Your responsive CSS learning hub</p>
+  </header>
+
+  <!-- ===== DASHBOARD GRID: sidebar + main ===== -->
+  <div class="dashboard-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Navigation sidebar">
+      <nav>
+        <h2 class="sidebar__heading">Topics</h2>
+        <ul class="sidebar__nav">
+          <li><a href="#filters" class="sidebar__link active">&#128200; Filters</a></li>
+          <li><a href="#typography" class="sidebar__link">&#128441; Typography</a></li>
+          <li><a href="#media-queries" class="sidebar__link">&#128241; Media Queries</a></li>
+          <li><a href="#cheat-links" class="sidebar__link">&#128196; Cheat Sheet</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__stats">
+        <h3>Quick Stats</h3>
+        <dl>
+          <dt>Questions</dt><dd>10</dd>
+          <dt>Files</dt><dd>20</dd>
+          <dt>Topics</dt><dd>4</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main" id="main-content">
+      <h2 class="dashboard-main__title">Assignment 9 Overview</h2>
+
+      <!-- Cards grid -->
+      <section class="cards-grid" aria-label="Topic summary cards">
+
+        <!-- Card 1 – Filters -->
+        <article class="dash-card dash-card--filters" id="filters">
+          <div class="dash-card__header">
+            <span class="dash-card__icon" aria-hidden="true">&#128200;</span>
+            <h3 class="dash-card__title">CSS Filters</h3>
+          </div>
+          <p class="dash-card__body">
+            Apply visual effects (blur, grayscale, sepia, brightness, contrast,
+            hue-rotate) to images or any element using the
+            <code>filter</code> property. Combine with transitions for smooth
+            hover effects.
+          </p>
+          <a href="image-filter-gallery.html" class="dash-card__link">View Gallery &#8594;</a>
+        </article>
+
+        <!-- Card 2 – Typography -->
+        <article class="dash-card dash-card--typography" id="typography">
+          <div class="dash-card__header">
+            <span class="dash-card__icon" aria-hidden="true">&#128441;</span>
+            <h3 class="dash-card__title">Responsive Typography</h3>
+          </div>
+          <p class="dash-card__body">
+            Use <code>clamp(min, preferred, max)</code> and viewport units
+            (<code>vw</code>, <code>vh</code>) to create fluid, readable
+            typography that adapts without hard breakpoints.
+          </p>
+          <a href="responsive-typography.html" class="dash-card__link">View Demo &#8594;</a>
+        </article>
+
+        <!-- Card 3 – Media Queries -->
+        <article class="dash-card dash-card--media" id="media-queries">
+          <div class="dash-card__header">
+            <span class="dash-card__icon" aria-hidden="true">&#128241;</span>
+            <h3 class="dash-card__title">Media Queries</h3>
+          </div>
+          <p class="dash-card__body">
+            Target specific viewport conditions with <code>@media</code> rules
+            to reorganise layouts at common breakpoints: 600 px (mobile),
+            750 px (tablet), 900 px (wide tablet), and beyond.
+          </p>
+          <a href="responsive-cards.html" class="dash-card__link">View Cards &#8594;</a>
+        </article>
+
+        <!-- Card 4 – Cheat Sheet -->
+        <article class="dash-card dash-card--cheatsheet" id="cheat-links">
+          <div class="dash-card__header">
+            <span class="dash-card__icon" aria-hidden="true">&#128196;</span>
+            <h3 class="dash-card__title">Cheat Sheet Links</h3>
+          </div>
+          <p class="dash-card__body">
+            Quick references to every assignment question in this module.
+          </p>
+          <ul class="dash-card__links">
+            <li><a href="image-filter-gallery.html">Q1 – Filter Gallery</a></li>
+            <li><a href="responsive-layout.html">Q2 – Layout</a></li>
+            <li><a href="responsive-cards.html">Q3 – Cards</a></li>
+            <li><a href="responsive-typography.html">Q4 – Typography</a></li>
+            <li><a href="filter-cards-animation.html">Q5 – Animated Cards</a></li>
+            <li><a href="css-cheat-sheet.html">Q6 – CSS Cheat Sheet</a></li>
+            <li><a href="combined-responsive-demo.html">Q7 – Combined Demo</a></li>
+            <li><a href="filter-comparison.html">Q8 – Filter Comparison</a></li>
+            <li><a href="design-principles.html">Q9 – Design Principles</a></li>
+          </ul>
+        </article>
+
+      </section>
+    </main>
+
+  </div><!-- /.dashboard-shell -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="dashboard-footer">
+    <p>Assignment 9 – Q10 | Responsive Dashboard Summary &nbsp;|&nbsp; BridgeLabz Training 2024</p>
+  </footer>
+
+</body>
+</html>

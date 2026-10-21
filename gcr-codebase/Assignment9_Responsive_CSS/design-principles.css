@@ -1,0 +1,185 @@
+/* ============================================================
+   design-principles.css
+   Q9 – Responsive Design Principles Summary
+   ============================================================ */
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #222;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+.page-header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  color: #fff;
+}
+
+.page-header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: #9aabcc;
+}
+
+/* ============================================================
+   PRINCIPLES GRID – 3 columns desktop → 1 column mobile
+   ============================================================ */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 2rem;
+  padding: 3rem clamp(1rem, 5vw, 5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   PRINCIPLE BOX
+   ============================================================ */
+.principle-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  /* Transition for gradient background + text-color change on hover */
+  transition: background 0.4s ease, color 0.4s ease,
+              transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover: gradient background + text colour change */
+.principle-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.principle-box--fluid:hover {
+  background: linear-gradient(135deg, #0f3460, #16213e);
+  color: #fff;
+}
+
+.principle-box--media:hover {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #fff;
+}
+
+.principle-box--breakpoints:hover {
+  background: linear-gradient(135deg, #7b2d8b, #a855f7);
+  color: #fff;
+}
+
+/* Icon */
+.principle-box__icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* Title */
+.principle-box__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  transition: color 0.4s ease;
+}
+
+.principle-box--fluid      .principle-box__title { color: #0f3460; }
+.principle-box--media      .principle-box__title { color: #1b4332; }
+.principle-box--breakpoints .principle-box__title { color: #7b2d8b; }
+
+/* On hover the title inherits the white text from parent */
+.principle-box:hover .principle-box__title { color: inherit; }
+
+/* Definition */
+.principle-box__definition {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1.25rem;
+  transition: color 0.4s ease;
+}
+
+.principle-box:hover .principle-box__definition {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Code example section */
+.principle-box__example h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.5rem;
+  transition: color 0.4s ease;
+}
+
+.principle-box:hover .principle-box__example h3 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.principle-box__example pre {
+  background: #f0f4f8;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  transition: background 0.4s ease;
+}
+
+.principle-box:hover .principle-box__example pre {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.principle-box__example code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: #0f3460;
+  white-space: pre;
+  transition: color 0.4s ease;
+}
+
+.principle-box:hover .principle-box__example code {
+  color: #82aaff;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.page-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #1a1a2e;
+  color: #8899aa;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE – Single column below 600px
+   ============================================================ */
+@media (max-width: 600px) {
+  .principles-grid {
+    grid-template-columns: 1fr; /* one column */
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question 11 - Student Information Form</title>
+</head>
+<body>
+
+    <h1>Student Information Form</h1>
+    <form action="#" method="post">
+
+        <label for="student_name">Student Name:</label><br>
+        <input type="text" id="student_name" name="student_name" required><br><br>
+
+        <label for="roll_no">Roll Number:</label><br>
+        <input type="text" id="roll_no" name="roll_no" required><br><br>
+
+        <label for="course">Course:</label><br>
+        <select id="course" name="course" required>
+
+            <option value="" disabled selected>Select Course</option>
+            <option value="cs">Computer Science & Engineering</option>
+            <option value="it">Information Technology</option>
+            <option value="ece">Electronics & Communication</option>
+            <option value="me">Mechanical Engineering</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit Information">
+    </form>
+</body>
+</html>

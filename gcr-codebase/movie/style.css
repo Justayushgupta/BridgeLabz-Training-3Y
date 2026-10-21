@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+}
+.movies {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.movie {
+    overflow: hidden;
+}
+
+.movie img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.movie-info {
+    padding: 8px 2px;
+}
+
+.movie-info h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+}
+
+.movie-info p {
+    margin: 0 0 5px;
+    color: #777;
+    font-size: 14px;
+}
+
+.movie-info span {
+    font-size: 14px;
+}

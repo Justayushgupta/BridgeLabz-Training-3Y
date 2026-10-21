@@ -1,0 +1,179 @@
+/* ============================================================
+   filter-cards-animation.css
+   Q5 – Filter Cards with Animation
+   ============================================================ */
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   @keyframes – Fade-in on page load
+   Applied to each profile card
+   ============================================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- Header ----- */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  background: linear-gradient(135deg, #0f2027, #2c5364);
+  color: #fff;
+}
+
+header h1 {
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  color: #a8c0cc;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   PROFILE CARDS – Flexbox row
+   ============================================================ */
+.profile-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 3rem clamp(1rem, 5vw, 4rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   INDIVIDUAL PROFILE CARD
+   ============================================================ */
+.profile-card {
+  flex: 1 1 280px;
+  max-width: 340px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+
+  /* Fade-in animation – different delay for stagger effect */
+  animation: fadeInUp 0.7s ease both;
+
+  /* Transition for lift effect on hover */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Stagger the animations */
+.profile-card:nth-child(1) { animation-delay: 0.1s; }
+.profile-card:nth-child(2) { animation-delay: 0.3s; }
+.profile-card:nth-child(3) { animation-delay: 0.5s; }
+
+/* Hover – lift the card */
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Image wrapper */
+.profile-card__img-wrapper {
+  overflow: hidden;
+  height: 220px;
+}
+
+.profile-card__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* Default filter for card 1 (grayscale) */
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+/* Sepia variant – card 2 */
+.sepia-card .profile-card__img-wrapper img {
+  filter: sepia(80%);
+}
+
+/* Saturate variant – card 3 (low saturation = desaturated look) */
+.saturate-card .profile-card__img-wrapper img {
+  filter: saturate(20%);
+}
+
+/* Remove filter on hover */
+.profile-card:hover .profile-card__img-wrapper img {
+  filter: none;
+}
+
+/* Card info section */
+.profile-card__info {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.profile-card__info h2 {
+  font-size: 1.15rem;
+  color: #1a1a2e;
+  margin-bottom: 0.2rem;
+}
+
+.role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c5364;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* ----- Footer ----- */
+footer {
+  text-align: center;
+  padding: 1.4rem 1rem;
+  background: #0f2027;
+  color: #8899aa;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE – Stack vertically below 800px
+   ============================================================ */
+@media (max-width: 800px) {
+  .profile-cards {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .profile-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}

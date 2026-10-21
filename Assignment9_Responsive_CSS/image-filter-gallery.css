@@ -1,0 +1,121 @@
+/* ============================================================
+   image-filter-gallery.css
+   Q1 – Responsive Image Filter Gallery
+   ============================================================ */
+
+/* ----- CSS Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ----- Page Header ----- */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #a0b0cc;
+}
+
+/* ----- Gallery Grid ----- */
+.gallery {
+  display: grid;
+  /* Auto-fit: at least 200px per column; fills available space */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2.5rem clamp(1rem, 5vw, 4rem);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ----- Gallery Card ----- */
+.gallery__card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  /* Slight grow on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.gallery__card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  /* Smooth filter removal on hover */
+  transition: filter 0.5s ease;
+}
+
+/* ----- Individual Filters ----- */
+.filter--blur       img { filter: blur(4px); }
+.filter--grayscale  img { filter: grayscale(100%); }
+.filter--sepia      img { filter: sepia(80%); }
+.filter--brightness img { filter: brightness(0.5); }
+.filter--contrast   img { filter: contrast(200%); }
+.filter--hue-rotate img { filter: hue-rotate(180deg); }
+
+/* Hover removes the filter */
+.gallery__card:hover img {
+  filter: none;
+}
+
+/* ----- Caption ----- */
+.gallery__card figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+/* ----- Footer ----- */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #1a1a2e;
+  color: #a0b0cc;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE – stack to 1 column below 600px
+   ============================================================ */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr; /* single column */
+    padding: 1.5rem 1rem;
+    gap: 1.2rem;
+  }
+
+  .gallery__card img {
+    height: 200px; /* slightly taller on mobile for better proportion */
+  }
+}

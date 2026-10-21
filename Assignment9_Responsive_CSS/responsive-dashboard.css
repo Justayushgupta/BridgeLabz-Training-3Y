@@ -1,0 +1,338 @@
+/* ============================================================
+   responsive-dashboard.css
+   Q10 – Responsive Dashboard Summary
+   ============================================================ */
+
+/* ----- Reset & Base ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   @keyframes – Load animation for cards
+   ============================================================ */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.dashboard-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-icon {
+  font-size: 1.6rem;
+  color: #f0a500;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.dashboard-header__tagline {
+  font-size: 0.9rem;
+  color: #a0b8c8;
+  font-style: italic;
+}
+
+/* ============================================================
+   DASHBOARD SHELL – CSS Grid: sidebar | main content
+   ============================================================ */
+.dashboard-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;  /* fixed sidebar + fluid main */
+  grid-template-rows: auto;
+  min-height: calc(100vh - 130px);   /* fill viewport minus header+footer */
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  background: #1e2d3d;
+  color: #cdd9e5;
+  padding: 1.75rem 1.25rem;
+  border-right: 1px solid #2d4055;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar__heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5577aa;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar__nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar__link {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  color: #9ab0c8;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.sidebar__link:hover,
+.sidebar__link.active {
+  background: #2c4a66;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* Quick stats DL */
+.sidebar__stats h3 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5577aa;
+  margin-bottom: 0.6rem;
+}
+
+.sidebar__stats dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.sidebar__stats dt { color: #7799bb; }
+.sidebar__stats dd { font-weight: 700; color: #e0eaf5; text-align: right; }
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.dashboard-main {
+  padding: 2rem 2.5rem;
+  background: #f0f2f5;
+}
+
+.dashboard-main__title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #1e2d3d;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #d0d8e4;
+}
+
+/* ============================================================
+   CARDS GRID – 2×2 on desktop
+   ============================================================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   DASHBOARD CARD
+   ============================================================ */
+.dash-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+
+  /* Load animation */
+  animation: cardFadeIn 0.55s ease both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Stagger the animation */
+.dash-card:nth-child(1) { animation-delay: 0.05s; }
+.dash-card:nth-child(2) { animation-delay: 0.15s; }
+.dash-card:nth-child(3) { animation-delay: 0.25s; }
+.dash-card:nth-child(4) { animation-delay: 0.35s; }
+
+/* Hover – scale up + shadow */
+.dash-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Card header */
+.dash-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.dash-card__icon {
+  font-size: 1.6rem;
+}
+
+.dash-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e2d3d;
+}
+
+/* Coloured left border per card type */
+.dash-card--filters    { border-left: 4px solid #e94560; }
+.dash-card--typography { border-left: 4px solid #7b2fff; }
+.dash-card--media      { border-left: 4px solid #0077b6; }
+.dash-card--cheatsheet { border-left: 4px solid #f0a500; }
+
+/* Body text */
+.dash-card__body {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.dash-card__body code {
+  font-family: 'Courier New', Courier, monospace;
+  background: #eef1f5;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* External link */
+.dash-card__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.dash-card__link:hover {
+  color: #e94560;
+  text-decoration: underline;
+}
+
+/* Link list (cheat sheet card) */
+.dash-card__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.dash-card__links a {
+  font-size: 0.85rem;
+  color: #0077b6;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.dash-card__links a:hover {
+  color: #e94560;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.dashboard-footer {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  background: #0f2027;
+  color: #556677;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE – below 750px: sidebar shifts to top, content stacks
+   ============================================================ */
+@media (max-width: 750px) {
+
+  /* Stack sidebar above main */
+  .dashboard-shell {
+    grid-template-columns: 1fr;  /* single column */
+  }
+
+  /* Sidebar becomes horizontal strip at top */
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #2d4055;
+    padding: 1.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sidebar__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar__link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  /* Stats inline */
+  .sidebar__stats {
+    display: none; /* hide on very small screens to save space */
+  }
+
+  /* Main content full width */
+  .dashboard-main {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Cards stack to single column */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Themed Blog - Bootstrap</title>
+  <!-- Google Font: Merriweather for blog feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Override Bootstrap theme variables */
+    :root {
+      --bs-primary: #6c3483;
+      --bs-primary-rgb: 108, 52, 131;
+      --bs-font-sans-serif: 'Poppins', sans-serif;
+    }
+    body { font-family: var(--bs-font-sans-serif); background: #f8f5fc; }
+    h1, h2, h3, .blog-title { font-family: 'Merriweather', serif; }
+    /* Custom primary button using overridden theme color */
+    .btn-primary { background-color: var(--bs-primary); border-color: var(--bs-primary); }
+    .btn-primary:hover { background-color: #5b2c6f; border-color: #5b2c6f; }
+    .btn-outline-primary { color: var(--bs-primary); border-color: var(--bs-primary); }
+    .btn-outline-primary:hover { background-color: var(--bs-primary); color: white; }
+    /* Navbar uses custom primary */
+    .navbar-custom { background-color: var(--bs-primary); }
+    /* Blog card hover */
+    .blog-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(108,52,131,0.2) !important; }
+    /* Category badge */
+    .badge-custom { background-color: var(--bs-primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar with custom primary color -->
+  <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold blog-title" href="#">✍️ ThinkDeep Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="text-center py-5" style="background: linear-gradient(135deg, #6c3483, #a569bd); color: white;">
+    <div class="container">
+      <h1 class="blog-title display-4 fw-bold">Welcome to ThinkDeep</h1>
+      <p class="lead mt-3">Explore ideas that challenge, inspire, and transform the way you think.</p>
+      <a href="#posts" class="btn btn-light btn-lg mt-3 fw-bold" style="color: var(--bs-primary);">Read Latest Posts</a>
+    </div>
+  </header>
+
+  <main class="container my-5" id="posts">
+
+    <h2 class="blog-title text-center mb-4" style="color: var(--bs-primary);">Latest Articles</h2>
+
+    <!-- Two blog post cards -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- Blog Card 1 -->
+      <div class="col-md-5">
+        <article class="card h-100 blog-card shadow-sm border-0">
+          <img src="https://picsum.photos/500/250?random=40" class="card-img-top rounded-top" alt="Blog Post 1" style="height: 220px; object-fit: cover;" />
+          <div class="card-body">
+            <span class="badge badge-custom text-white mb-2">Technology</span>
+            <h3 class="blog-title h5 fw-bold">The Future of AI in Everyday Life</h3>
+            <p class="text-muted small">October 20, 2026 &bull; 5 min read</p>
+            <p class="card-text">Artificial Intelligence is no longer a futuristic concept — it's woven into our daily routines. From smart assistants to recommendation engines, AI is changing everything.</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-primary btn-sm">Read More →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="col-md-5">
+        <article class="card h-100 blog-card shadow-sm border-0">
+          <img src="https://picsum.photos/500/250?random=41" class="card-img-top rounded-top" alt="Blog Post 2" style="height: 220px; object-fit: cover;" />
+          <div class="card-body">
+            <span class="badge badge-custom text-white mb-2">Lifestyle</span>
+            <h3 class="blog-title h5 fw-bold">Why Deep Work is the Superpower of the 21st Century</h3>
+            <p class="text-muted small">October 18, 2026 &bull; 7 min read</p>
+            <p class="card-text">In an age of constant distraction, the ability to focus deeply on cognitively demanding work has become increasingly rare — and extremely valuable.</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-primary btn-sm">Read More →</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- Newsletter signup -->
+    <div class="text-center mt-5 p-4 rounded" style="background: #ede7f6;">
+      <h4 class="fw-bold blog-title" style="color: var(--bs-primary);">Subscribe to our Newsletter</h4>
+      <p class="text-muted">Get the best articles delivered to your inbox weekly.</p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <input type="email" class="form-control w-auto" placeholder="Enter your email" />
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-white text-center py-4" style="background-color: var(--bs-primary);">
+    <p class="mb-0">&copy; 2026 ThinkDeep Blog. Crafted with passion.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Assignment 3 - Execution Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      padding: 30px 20px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #334155;
+    }
+    header h1 {
+      font-size: 28px;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 15px;
+      color: #94a3b8;
+    }
+    .badge-container {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #1e293b;
+      color: #38bdf8;
+      border: 1px solid #334155;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .btn-run-all {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-run-all:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      transform: translateY(-1px);
+    }
+    .btn-clear {
+      background: #334155;
+      color: #e2e8f0;
+      border: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-clear:hover {
+      background: #475569;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 16px;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card p {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .card button {
+      background-color: #0284c7;
+      color: white;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 600;
+      align-self: flex-start;
+      transition: background-color 0.2s ease;
+    }
+    .card button:hover {
+      background-color: #0369a1;
+    }
+    .console-section {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .console-header {
+      background: #0f172a;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+    }
+    .console-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      font-family: Consolas, Monaco, monospace;
+    }
+    .console-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .console-box {
+      color: #4ade80;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 13px;
+      padding: 18px;
+      min-height: 280px;
+      max-height: 550px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>JavaScript - Assignment 3 Dashboard</h1>
+      <p>Data Parsing, Type Coercion, Strict Mode, Scoping, Hoisting, Custom Errors, and Closures</p>
+      <div class="badge-container">
+        <span class="badge">"use strict" Enforced</span>
+        <span class="badge">No External Libraries</span>
+        <span class="badge">Zero Implicit Globals</span>
+        <span class="badge">Comprehensive Error Handling</span>
+      </div>
+    </header>
+
+    <div class="actions">
+      <button class="btn-run-all" onclick="runAll()">▶ Run All 10 Questions</button>
+      <button class="btn-clear" onclick="clearConsole()">Clear Console Output</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Q1. Dynamic Data Parser</h3>
+        <p>Type coercion audit into Number, Boolean, String; filters invalid data (" ", NaN, 100px) and separates arrays.</p>
+        <button onclick="runScript('question1.js')">Run Question 1</button>
+      </div>
+
+      <div class="card">
+        <h3>Q2. Employee Bonus Calculator</h3>
+        <p>Converts stringified salary/experience, applies tenure-based bonus rate, and validates with try...catch.</p>
+        <button onclick="runScript('question2.js')">Run Question 2</button>
+      </div>
+
+      <div class="card">
+        <h3>Q3. Transaction Validator</h3>
+        <p>Throws custom error classes for negative amounts, missing IDs/amounts, and null entries; tracks audit metrics.</p>
+        <button onclick="runScript('question3.js')">Run Question 3</button>
+      </div>
+
+      <div class="card">
+        <h3>Q4. Debugging Mystery</h3>
+        <p>Fixes undeclared variable runtime errors under strict mode; explains lexical scope boundaries and call stack.</p>
+        <button onclick="runScript('question4.js')">Run Question 4</button>
+      </div>
+
+      <div class="card">
+        <h3>Q5. Hoisting Lab: Sequence Trap</h3>
+        <p>Deep-dive into Creation vs Execution phase memory states, Temporal Dead Zone (TDZ), and arrow function contrast.</p>
+        <button onclick="runScript('question5.js')">Run Question 5</button>
+      </div>
+
+      <div class="card">
+        <h3>Q6. Pyramid Pattern Generator</h3>
+        <p>Generates half-pyramid patterns, compares 'let' vs 'var' loop collision traps, and enforces strict mode.</p>
+        <button onclick="runScript('question6.js')">Run Question 6</button>
+      </div>
+
+      <div class="card">
+        <h3>Q7. Smart Calculator</h3>
+        <p>Switch-based multi-operation calculator with custom errors for division by zero and negative square roots.</p>
+        <button onclick="runScript('question7.js')">Run Question 7</button>
+      </div>
+
+      <div class="card">
+        <h3>Q8. Strict Mode Showdown</h3>
+        <p>Contrasts sloppy vs strict mode on duplicate parameters, undeclared globals, and identifier deletion.</p>
+        <button onclick="runScript('question8.js')">Run Question 8</button>
+      </div>
+
+      <div class="card">
+        <h3>Q9. JSON Audit</h3>
+        <p>Parses mixed JSON records, detects schema errors with line numbers, analyzes control flow, and filters under-18 users.</p>
+        <button onclick="runScript('question9.js')">Run Question 9</button>
+      </div>
+
+      <div class="card">
+        <h3>Q10. Nested Hoisting & Closures</h3>
+        <p>Analyzes inner/outer variable shadowing, execution context records, arrow function closure, and call stack flow.</p>
+        <button onclick="runScript('question10.js')">Run Question 10</button>
+      </div>
+    </div>
+
+    <div class="console-section">
+      <div class="console-header">
+        <span class="console-title">TERMINAL CONSOLE OUTPUT</span>
+        <div class="console-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+      </div>
+      <div class="console-box" id="outputConsole">Press "Run All 10 Questions" or click any individual question above to execute...</div>
+    </div>
+  </div>
+
+  <script>
+    const outputConsole = document.getElementById("outputConsole");
+
+    const originalLog = console.log;
+    const originalError = console.error;
+    const originalWarn = console.warn;
+    const originalTable = console.table;
+
+    function formatMessage(...args) {
+      return args.map(arg => {
+        if (typeof arg === "object" && arg !== null) {
+          try {
+            return JSON.stringify(arg, null, 2);
+          } catch (e) {
+            return String(arg);
+          }
+        }
+        return String(arg);
+      }).join(" ");
+    }
+
+    function logToUI(...args) {
+      originalLog.apply(console, args);
+      outputConsole.textContent += formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function errorToUI(...args) {
+      originalError.apply(console, args);
+      outputConsole.textContent += "[ERROR] " + formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function warnToUI(...args) {
+      originalWarn.apply(console, args);
+      outputConsole.textContent += "[WARN] " + formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function tableToUI(data) {
+      originalTable.call(console, data);
+      outputConsole.textContent += JSON.stringify(data, null, 2) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    console.log = logToUI;
+    console.error = errorToUI;
+    console.warn = warnToUI;
+    console.table = tableToUI;
+
+    function clearConsole() {
+      outputConsole.textContent = "";
+    }
+
+    function runScript(fileName) {
+      clearConsole();
+      logToUI(`>>> Initiating execution of ${fileName}...`);
+      fetch(fileName)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error ${res.status} fetching ${fileName}`);
+          return res.text();
+        })
+        .then(code => {
+          new Function(code)();
+        })
+        .catch(err => {
+          logToUI(`Execution error in ${fileName}: ${err.message}`);
+        });
+    }
+
+    function runAll() {
+      clearConsole();
+      const files = [
+        "question1.js", "question2.js", "question3.js", "question4.js", "question5.js",
+        "question6.js", "question7.js", "question8.js", "question9.js", "question10.js"
+      ];
+      
+      let p = Promise.resolve();
+      files.forEach((f, idx) => {
+        p = p.then(() => {
+          logToUI(`\n===============================================================================`);
+          logToUI(`=== RUNNING SCRIPT [${idx + 1}/10]: ${f} ===`);
+          logToUI(`===============================================================================`);
+          return fetch(f)
+            .then(res => {
+              if (!res.ok) throw new Error(`HTTP error ${res.status} fetching ${f}`);
+              return res.text();
+            })
+            .then(code => {
+              new Function(code)();
+            })
+            .catch(err => {
+              logToUI(`Error executing ${f}: ${err.message}`);
+            });
+        });
+      });
+    }
+  </script>
+</body>
+</html>

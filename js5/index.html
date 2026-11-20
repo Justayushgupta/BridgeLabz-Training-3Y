@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Assignment 5 - Execution Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      padding: 30px 20px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #334155;
+    }
+    header h1 { font-size: 28px; color: #38bdf8; margin-bottom: 8px; font-weight: 700; }
+    header p { font-size: 15px; color: #94a3b8; }
+    .badge-container {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #1e293b;
+      color: #38bdf8;
+      border: 1px solid #334155;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .actions { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+    .btn-run-all {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-run-all:hover { transform: translateY(-1px); background: linear-gradient(135deg, #0369a1, #1d4ed8); }
+    .btn-clear {
+      background: #334155;
+      color: #e2e8f0;
+      border: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-clear:hover { background: #475569; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .card:hover { border-color: #38bdf8; transform: translateY(-2px); }
+    .card h3 { font-size: 16px; color: #38bdf8; margin-bottom: 8px; }
+    .card p { font-size: 13.5px; color: #94a3b8; margin-bottom: 16px; flex-grow: 1; }
+    .card button {
+      background-color: #0284c7;
+      color: white;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 600;
+      align-self: flex-start;
+      transition: background-color 0.2s ease;
+    }
+    .card button:hover { background-color: #0369a1; }
+    .console-section {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .console-header {
+      background: #0f172a;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+    }
+    .console-title { font-size: 13px; font-weight: 600; color: #94a3b8; font-family: Consolas, monospace; }
+    .console-dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .console-box {
+      color: #4ade80;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 13px;
+      padding: 18px;
+      min-height: 280px;
+      max-height: 550px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>JavaScript - Assignment 5 Dashboard</h1>
+      <p>Callbacks, Higher-Order Functions, 'this' Binding, Prototypes, Inheritance, and Closures</p>
+      <div class="badge-container">
+        <span class="badge">Callbacks & HOFs</span>
+        <span class="badge">Lexical 'this' Mechanics</span>
+        <span class="badge">Prototype Inheritance Chain</span>
+        <span class="badge">Lexical Closures</span>
+        <span class="badge">ES6 Class Syntax</span>
+      </div>
+    </header>
+
+    <div class="actions">
+      <button class="btn-run-all" onclick="runAll()">▶ Run All 9 Questions</button>
+      <button class="btn-clear" onclick="clearConsole()">Clear Console Output</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Q1. Callback Flow (greetUser)</h3>
+        <p>Demonstrates synchronous callback control flow: greetUser prints greeting, then invokes showEndMessage().</p>
+        <button onclick="runScript('question1.js')">Run Question 1</button>
+      </div>
+
+      <div class="card">
+        <h3>Q2. Higher-Order applyOperation</h3>
+        <p>Higher-order function applyOperation transforming array numbers into doubled and squared sequences.</p>
+        <button onclick="runScript('question2.js')">Run Question 2</button>
+      </div>
+
+      <div class="card">
+        <h3>Q3. 'this' Binding: Arrow vs Regular</h3>
+        <p>Explains why this.name is undefined in arrow methods and fixes it using regular function binding.</p>
+        <button onclick="runScript('question3.js')">Run Question 3</button>
+      </div>
+
+      <div class="card">
+        <h3>Q4. Car Constructor & Method Sharing</h3>
+        <p>Car(brand, model) constructor with getDetails() prototype method to prove shared memory reference across instances.</p>
+        <button onclick="runScript('question4.js')">Run Question 4</button>
+      </div>
+
+      <div class="card">
+        <h3>Q5. Prototype Inheritance: Person &rarr; Student</h3>
+        <p>Student inherits from Person via Object.create(Person.prototype); demonstrates multi-method prototype lookup.</p>
+        <button onclick="runScript('question5.js')">Run Question 5</button>
+      </div>
+
+      <div class="card">
+        <h3>Q6. Multi-level Prototype Chain</h3>
+        <p>Person &rarr; Faculty &rarr; Professor 3-tier chain showing how Professor accesses all methods up the prototype chain.</p>
+        <button onclick="runScript('question6.js')">Run Question 6</button>
+      </div>
+
+      <div class="card">
+        <h3>Q7. Closures: makeMultiplier</h3>
+        <p>makeMultiplier(multiplier) factory returning specialized functions; explains lexical environment preservation.</p>
+        <button onclick="runScript('question7.js')">Run Question 7</button>
+      </div>
+
+      <div class="card">
+        <h3>Q8. Custom Array.prototype.myMap</h3>
+        <p>Custom polyfill implementation of map() on Array.prototype with sparse array handling and thisArg support.</p>
+        <button onclick="runScript('question8.js')">Run Question 8</button>
+      </div>
+
+      <div class="card">
+        <h3>Q9. ES6 Class vs Prototype Inheritance</h3>
+        <p>Rewrites Person &rarr; Student using ES6 class extends & super(); proves identical underlying prototype chain structure.</p>
+        <button onclick="runScript('question9.js')">Run Question 9</button>
+      </div>
+    </div>
+
+    <div class="console-section">
+      <div class="console-header">
+        <span class="console-title">TERMINAL CONSOLE OUTPUT</span>
+        <div class="console-dots">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+      </div>
+      <div class="console-box" id="outputConsole">Press "Run All 9 Questions" or click any individual question to execute...</div>
+    </div>
+  </div>
+
+  <script>
+    const outputConsole = document.getElementById("outputConsole");
+    const originalLog = console.log;
+    const originalError = console.error;
+    const originalWarn = console.warn;
+
+    function formatMessage(...args) {
+      return args.map(arg => {
+        if (typeof arg === "object" && arg !== null) {
+          try { return JSON.stringify(arg, null, 2); } catch (e) { return String(arg); }
+        }
+        return String(arg);
+      }).join(" ");
+    }
+
+    function logToUI(...args) {
+      originalLog.apply(console, args);
+      outputConsole.textContent += formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function errorToUI(...args) {
+      originalError.apply(console, args);
+      outputConsole.textContent += "[ERROR] " + formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    function warnToUI(...args) {
+      originalWarn.apply(console, args);
+      outputConsole.textContent += "[WARN] " + formatMessage(...args) + "\n";
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    console.log = logToUI;
+    console.error = errorToUI;
+    console.warn = warnToUI;
+
+    function clearConsole() { outputConsole.textContent = ""; }
+
+    function runScript(fileName) {
+      clearConsole();
+      logToUI(`>>> Initiating execution of ${fileName}...`);
+      fetch(fileName)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error ${res.status} fetching ${fileName}`);
+          return res.text();
+        })
+        .then(code => { new Function(code)(); })
+        .catch(err => { logToUI(`Execution error in ${fileName}: ${err.message}`); });
+    }
+
+    function runAll() {
+      clearConsole();
+      const files = [
+        "question1.js", "question2.js", "question3.js", "question4.js",
+        "question5.js", "question6.js", "question7.js", "question8.js", "question9.js"
+      ];
+      let p = Promise.resolve();
+      files.forEach((f, idx) => {
+        p = p.then(() => {
+          logToUI(`\n===============================================================================`);
+          logToUI(`=== RUNNING SCRIPT [${idx + 1}/9]: ${f} ===`);
+          logToUI(`===============================================================================`);
+          return fetch(f)
+            .then(res => {
+              if (!res.ok) throw new Error(`HTTP error ${res.status} fetching ${f}`);
+              return res.text();
+            })
+            .then(code => { new Function(code)(); })
+            .catch(err => { logToUI(`Error executing ${f}: ${err.message}`); });
+        });
+      });
+    }
+  </script>
+</body>
+</html>
